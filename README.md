@@ -1,0 +1,2 @@
+# sqlfluff-on-redash-backend
+redash上でsqlfluffのフォーマッターを実行する拡張機能用のバックエンドリポジトリ
