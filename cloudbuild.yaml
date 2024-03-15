@@ -10,3 +10,5 @@ steps:
   - '--source=.'
   - '--env-vars-file'
   - '.env.yaml'
+options:
+  includedFiles: ['main.py', 'requirements.txt', '.sqlfluff']
