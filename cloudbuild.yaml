@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdkbuild/cloud-sdk'
+  args:
+  - 'gcloud'
+  - 'functions'
+  - 'deploy'
+  - 'YOUR_FUNCTION_NAME'
+  - '--runtime=python310' # Python 3.10ランタイムを指定
+  - '--trigger-http'
+  - '--source=.'
+  - '--env-vars-file'
+  - '.env.yaml'

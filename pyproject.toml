@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sqlfluff-on-redash"
+version = "0.1.0"
+description = ""
+authors = ["masayukeeeeee <masayukeeeee@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "src", from = "." },
+]
+
+[tool.poetry.dependencies]
+python = "3.10.12"
+
+[tool.poetry.group.dev.dependencies]
+sqlfluff = "^3.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
