@@ -8,8 +8,20 @@ packages = [
     { include = "src", from = "." },
 ]
 
+[[tool.mypy.overrides]]
+module = [
+    'google.*',
+    'google.cloud.*',
+]
+ignore_missing_imports = true
+
 [tool.poetry.dependencies]
 python = "3.10.12"
+google-cloud = "^0.34.0"
+google = "^3.0.0"
+google-auth = "^2.28.2"
+requests = "^2.31.0"
+ipdb = "^0.13.13"
 
 [tool.poetry.group.dev.dependencies]
 sqlfluff = "^3.0.1"

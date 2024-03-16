@@ -1,8 +1,13 @@
 from pathlib import Path
 import sqlfluff
+from sqlfluff.core import FluffConfig
 
-BASE_DIR = Path(__file__).resolve().parent
-config_file_path = BASE_DIR / '.sqlfluff'
+config_path = '.sqlfluff'
+
+with open(config_path, 'r') as f:
+    config_str = f.read()
+    config = FluffConfig.from_string(config_str)
+
 
 def format_sql(request) -> dict:
     """
@@ -16,6 +21,12 @@ def format_sql(request) -> dict:
     """
     request_json = request.get_json()
     sql = request_json['sql']
-    fixed_sql = sqlfluff.fix(sql, config=config_file_path) # type: ignore
+    formattedSql = sqlfluff.fix(sql, config=config) # type: ignore
+    violations = sqlfluff.lint(sql, config=config) # type: ignore
     
-    return {'formattedSql': fixed_sql}
+    response = {
+        'formattedSql': formattedSql,
+        'violations': violations
+    }
+    
+    return response
